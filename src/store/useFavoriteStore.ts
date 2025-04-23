@@ -15,11 +15,15 @@ export const useFavoriteStore = create<FavoriteStore>((set) => ({
       return { favorites };
     });
   },
-  deleteFavorite: (id: string) => {
+  deleteFavorite: (id: string) =>
     set((state) => {
-      const favorites = state.favorites.filter((favorite) => favorite !== id);
-      localStorage.setItem("favorite-pokemons", favorites.join(","));
-      return { favorites };
-    });
-  },
+
+        const favorites = state.favorites.filter((favorite) => favorite !== id);
+        if (favorites.length === 0){
+            localStorage.removeItem("favorite-pokemons")
+        }else{
+            localStorage.setItem("favorite-pokemons", favorites.join(","));
+        }
+        return { favorites };
+    }),
 }));
