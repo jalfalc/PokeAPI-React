@@ -7,8 +7,10 @@ import { convertLibsToKg } from "../../utils/convertLbsToKg";
 import { convertInchesToCm } from "../../utils/convertInchesToCm";
 import { PokemonSprites } from "../PokemonSprites/PokemonSprites";
 import { TypeIcons } from "../shared/TypeIcons/TypeIcons";
+import { useSearchStore } from "../../store/useSearchStore";
 
 export const PokemonInfo = () => {
+
   const { pokemonName } = useParams();
   const { pokemonData } = useGetPokemon(pokemonName);
   const mainType = useMemo(
