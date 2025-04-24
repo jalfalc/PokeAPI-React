@@ -5,12 +5,9 @@ import { PokemonCard } from "../PokemonCard/PokemonCard";
 import { useSearchStore } from "../../store/useSearchStore";
 
 const SearchModal: React.FC = () => {
-  const [isOpen, closeModal] = useSearchStore((state) => [
-    state.isOpen,
-    state.closeModal,
-  ]);
-  const [filter, setFilter] = useState("");
-  const [currentSearch, setCurrentSearch] = useState("");
+
+  const { filter, setFilter, currentSearch, setCurrentSearch, closeModal, isOpen} = useSearchStore()
+
   const { pokemonData } = useGetPokemon(currentSearch);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) =>
@@ -19,8 +16,6 @@ const SearchModal: React.FC = () => {
   const onClickSearch = () => setCurrentSearch(filter.toLowerCase());
 
   const handleCloseModal = () => {
-    setFilter("");
-    setCurrentSearch("");
     closeModal();
   };
   return (
