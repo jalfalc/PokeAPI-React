@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 
+
 const Pokedex = React.lazy(() => import("../views/Pokedex"));
 const PokemonProfile = React.lazy(() => import("../views/PokemonProfile"));
 const PokemonByType = React.lazy(() => import("../views/PokemonType"));
